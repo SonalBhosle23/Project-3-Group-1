@@ -29,7 +29,7 @@ function init(){
 };
 init()
 
-//Create the visualisation function for the dashboard
+///Create the visualisation function for the dashboard
 function visualise(namesList){
     //Use filter to get the data for the selected food
     let sampleArr1 = foodNutrients.filter(sample =>sample.name == namesList);

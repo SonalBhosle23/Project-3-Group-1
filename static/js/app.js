@@ -93,12 +93,12 @@ function visualise(namesList){
         shape: "angular",
         mode: "gauge+number",
         gauge: {
-            axis: {range: [0, 60]},
+            axis: {range: [0, 80]},
             bar: {color:"green", thickness: 0.08},
             steps: [
-                {range: [0,20], color:"#80FF80"},
-                {range: [20,40], color:"yellow"},
-                {range: [40,60], color:"red"},
+                {range: [0,30], color:"#80FF80"},
+                {range: [30,60], color:"yellow"},
+                {range: [60,80], color:"red"},
             ]
         }
     };

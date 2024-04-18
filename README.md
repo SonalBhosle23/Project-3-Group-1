@@ -5,6 +5,12 @@ NutriVis is a tool designed to simplify the understanding of nutritional data fo
 
 ![enter image description here](https://github.com/SonalBhosle23/Project-3-Group-1/blob/main/images/gauge%20chart%201.png?raw=true)
 
+### Group Members
+-    Steph Adey
+-    Sonal Bhosle
+-    Liwei Jiang
+-    Aryan Linga
+
 ## Repository Contents
 -   `Project3Group1.ipynb`: Jupyter Notebook containing the codings and providing the visualisations.
 -   `static/js`: The file "data.js" containing the data for 700 final sample and the file app.js containing the coding for the dashboard.
@@ -35,7 +41,6 @@ To use NutriVis, follow these steps:
 
 ### MongoDB Database Setup
 To set up the MongoDB database and import the necessary data files for NutriVis, follow these steps:
-
 5. Open a terminal window on your computer.
 6. Navigate to the Resources folder where the original and exported data files are located. You can do this by typing `cd path/to/Resources` in your terminal, replacing `path/to/Resources` with the actual path to your Resources folder.
 7. Use the following commands to load the data into MongoDB. Make sure MongoDB is installed and running on your machine before executing these commands:

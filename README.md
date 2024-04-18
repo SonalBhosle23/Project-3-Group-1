@@ -1,93 +1,71 @@
-# Project-3-Group-1
+# NutriVis - Visualising Nutritional Profiles of Foods
 
-# Project title: NutriVis – Visualising Nutritional Profiles of Foods
+## Overview and Purpose
+NutriVis is a tool designed to simplify the understanding of nutritional data for consumers. It visualises the nutritional profiles of various foods, enabling users to make informed dietary choices by comparing and contrasting the nutritional content of different food items, such as energy, protein, carbohydrates, fats, vitamins, and minerals. NutriVis aims to serve educators, dieticians, and individuals curious about nutrition, providing a detailed and accessible approach to dietary planning and education.
 
-## Overview
+![enter image description here](https://github.com/SonalBhosle23/Project-3-Group-1/blob/main/images/gauge%20chart%201.png?raw=true)
 
-Purpose:
-Planning and Research:
-Coding and Design:
-Explore visualisation tools:
-Output(including the live static dashboard):
-
-This project attempts to provide a platform for users to check the nutritional profiles of foods. At the planning stage, we epxlored the sources of data and inspected the webpages regarding wellbeing and fitness, among others. With respect to coding and design, we attempt to code as succinctly as possible and follow a logic from broader categories to specific foods for visualisations. Apart from utilising the visualisation tools covered in the classes, we explored other visualisation tools and used two extra libraries for visualisations that are not covered in the class. We extracted data, in Excel format originally, and performed cleaning tasks, including extracting, transforming, and loading, to eventually finalise the sample to be used for the visualisations. This README outlines the project structure, setup instructions, and usage guidance.
-
-## Project Structure
-
+## Repository Contents
 -   `Project3Group1.ipynb`: Jupyter Notebook containing the codings and providing the visualisations.
--   `static\js`: The file "dataa.js" containing the data for 700 final sample and the file app.js 
-                  containing the coding for the dashboard.
--   `Resources/`: Folder containing the original Excel data files and exported CSV and JSON files:
-    -   `ABBREV.xlsx`: Original data downloaded from data.world (sourced from U.S. Department of 
-                       Agriculture (USDA)).
+-   `static/js`: The file "data.js" containing the data for 700 final sample and the file app.js containing the coding for the dashboard.
+-   `Resources`: Folder containing the original Excel data files and exported CSV and JSON files:
+    -   `ABBREV.xlsx`: Original data downloaded from data.world (sourced from U.S. Department of Agriculture (USDA)).
     -   `original.csv`: The csv file converted from the original excel file ABBREV.xlsx.
     -   `origianl.json`: The json file converted from the original excel file ABBREV.xlsx.
-    -   `food_label_final.csv`: The csv file converted from the DataFrame of the final sample for 
-                        visualisations.
-    -   `food_label_final.json`: The json file converted from the DataFrame of the final sample for 
-                        visualisations.
+    -   `food_label_final.csv`: The csv file converted from the DataFrame of the final sample for visualisations.
+    -   `food_label_final.json`: The json file converted from the DataFrame of the final sample for visualisations.
     -   `food.jpg`: An image used to decorate the dashboard.
--   `Images/`: Folder containing screenshots of:
+-   `Images`: Folder containing screenshots of:
     -   `average nutrition values by category`: the first visualisation generated.
     -   `a comparison of two categories`: the second visualisation from comparing two categories.
-    -   `updated Nutrients density heatmap`: the third visualisation created using dokeh tools.
-    -   `the dashboard image`: an image of the dashboard presenting interactive visualisations. 
-    -   `an example of food label gnerated on the dashboard`: an image of food label generated on the 
-                             dashboard.
+    -   `updated Nutrients density heatmap`: the third visualisation created using bokeh tools.
+    -   `the dashboard image`: an image of the dashboard presenting interactive visualisations.
+    -   `an example of food label gnerated on the dashboard`: an image of food label generated on the dashboard.
     -   `gauge chart 1`: the gauge chart for satuated_fat upon a selection of food on the dashboard.
     -   `gauge chart 2`: the gauge chart for satuated_fat upon a selection of food on the dashboard.
 
+## How to Use
+To use NutriVis, follow these steps:
+1. Access the NutriVis platform online or download the source code from the GitHub repository.
+2. Install any necessary dependencies as outlined in the `Project3Group1.ipynb` file.
+3. Navigate through the website's interactive elements:
+   - Use the dropdown menus to select different food items.
+   - View the nutritional data visualised in various forms such as pie charts, gauges, and heat maps.
+4. Interact with the visualisations to filter data and explore different nutritional aspects of selected food items.
 
-## Before You Begin
+### MongoDB Database Setup
+To set up the MongoDB database and import the necessary data files for NutriVis, follow these steps:
 
--   Check if you are able to import all the dependencies in the file "Project3Group1.ipynb"
--   Install the required libraries if needed.
+5. Open a terminal window on your computer.
+6. Navigate to the Resources folder where the original and exported data files are located. You can do this by typing `cd path/to/Resources` in your terminal, replacing `path/to/Resources` with the actual path to your Resources folder.
+7. Use the following commands to load the data into MongoDB. Make sure MongoDB is installed and running on your machine before executing these commands:
+   - Import the original data:
+     ```bash
+     mongoimport --type json -d food -c original --drop --jsonArray original.json
+     ```
+   - Import the final labeled data:
+     ```bash
+     mongoimport --type json -d food -c food_label_final --drop --jsonArray food_label_final.json
+     ```
+   These commands will create a new database called `food` if it doesn't already exist, and add two collections: `original` and `food_label_final`. The `--drop` option ensures that any existing collections with the same names are dropped (deleted) before importing the new data, preventing duplicate entries.
 
-## Setup
-
-1.  Clone this repository to your local machine.
-2.  Navigate to the cloned directory.
-3.  Ensure the `Resources` folder contains the original excel file "ABBREV.xlsx".
-4.  Open the `Project3Group1.ipynb` Jupyter Notebook in Jupyter Lab or Visual Studio Code.
-5.  Follow the steps to run the codes.
-
-## MongoDB Database Setup
-
-1.  Open a terminal and navigate to the Resources folder where the original and exported files are located.
-2.  copy and paste the following codes to load the files to MongoDB when the files are generated:
-#'mongoimport --type json -d food -c original --drop --jsonArray original.json'
-#'mongoimport --type json -d food -c food_label_final --drop --jsonArray food_label_final.json'
-
-## Using the Project
-
--   The project is divided into two parts:
-    -   **One-way Visualisation**: Follow the steps in the file "Project3Group1.ipynb".
-    -   **Interactive Visualisation on the Dashboard**: Open the index.html and select foods from the 
-                                   dropdown menu.
-
-## Data ethics considered
-
-During the process of working on the project, we endeavour to follow the rules, including the rules for privacy and ethical coding when extracting data, exploring codes for new visiualisation tools. All the resources used are acknowledged and referenced below.
+These steps will set up the database needed to run the NutriVis tool with all the necessary data pre-loaded.
 
 
-## Authors
+## Ethical Considerations
+NutriVis is committed to ethical data use and user interaction. Efforts include:
+- Ensuring all nutritional data used in NutriVis is sourced from reputable databases, providing accurate and reliable information.
+- Designing the tool to be accessible to a diverse user base, avoiding biases towards any specific dietary preferences or health conditions.
+- Encouraging informed dietary choices without promoting specific products or diets.
+- Respecting data licensing agreements by crediting the USDA FoodData Central as the primary source of our nutritional data. According to their licensing terms, this data is in the public domain under CC0 1.0 Universal (CC0 1.0). While no permission is needed for their use, proper attribution is requested. The suggested citation for using this data is: "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2019. fdc.nal.usda.gov."
 
-- Steph Adey
-- Sonal Bhosle
-- Liwei Jiang
-- Aryan Linga
+## References and Acknowledgements
+### Data Sources
+- Nutritional data sourced from the [USDA Food Composition Databases](https://fdc.nal.usda.gov/), a credible source offering comprehensive information on food ingredients.
+- Retrieved from data.world [https://data.world/login?next=%2Fawram%2Ffood-nutritional-values%2Fworkspace%2Ffile%3Ffilename%3DABBREV.xlsx]
 
-## References
-
-- University of Adelaide. (2023). Module 14 contents in particular.
-https://bootcampspot.instructure.com/courses/4781/pages/14-interactive-web-visualisations?module_item_id=1163045
-- Visualisation Gallery-boheh. Retrieved from (https://docs.bokeh.org/en/latest/docs/gallery.html)
-- How to Guides using ipywidgets interact tools. Retrieve from (https://ipywidgets.readthedocs.io/en/latest/examples/Using%20Interact.html)
-
-
-**Data**
-- Data for this dataset was generated by edX Boot Camps LLC, and is intended for educational purposes only.
-- Data for Food nutritional values, retrieved from data.world (https://data.world/login?next=%2Fawram%2Ffood-nutritional-values%2Fworkspace%2Ffile%3Ffilename%3DABBREV.xlsx)
-- U.S. Department of Agriculture (USDA) (https://www.ars.usda.gov/northeast-area/beltsville-md-bhnrc/beltsville-human-nutrition-research-center/methods-and-application-of-food-composition-laboratory/)
-
-
+### Code References
+- Visualisation functionalities are implemented using [Plotly](https://plotly.com/) and [D3.js](https://d3js.org/), popular libraries for creating interactive data visualisations.
+- -   University of Adelaide. (2023). Module 14 contents in particular.[https://bootcampspot.instructure.com/courses/4781/pages/14-interactive-web-visualisations?module_item_id=1163045](https://bootcampspot.instructure.com/courses/4781/pages/14-interactive-web-visualisations?module_item_id=1163045)
+-   Visualisation Gallery-boheh. Retrieved from ([https://docs.bokeh.org/en/latest/docs/gallery.html](https://docs.bokeh.org/en/latest/docs/gallery.html))
+-   How to Guides using ipywidgets interact tools. Retrieved from ([https://ipywidgets.readthedocs.io/en/latest/examples/Using%20Interact.html](https://ipywidgets.readthedocs.io/en/latest/examples/Using%20Interact.html))
